@@ -37,7 +37,7 @@ function Traininglist() {
 
   const [columnDefs] = useState([
     { field: 'date', sortable: true, filter: true ,width: 250,
-     valueFormatter: (params) => moment(params.value).format('YYYY-MM-DD HH:mm:ss') },
+     valueFormatter: (params) => moment(params.value).format('DD-MM-YYYY HH:mm') },
     { field: 'duration', sortable: true, filter: true },
     { field: 'activity', sortable: true, filter: true, width: 250  },
     { field: 'customer.firstname',headerName: 'Customer',  sortable: true, filter: true },

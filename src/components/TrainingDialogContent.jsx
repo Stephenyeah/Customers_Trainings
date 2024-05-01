@@ -6,9 +6,6 @@ import moment from 'moment';
 export default function TrainingDialogContent({ training, handleChange }) {
 
 
-  const date = new Date(training.date);
-
-  const formattedDate = moment(date).format('YYYY-MM-DD HH:mm:ss');
 
   return (
     <DialogContent>
