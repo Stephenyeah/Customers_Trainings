@@ -6,54 +6,63 @@ export default function CustomerDialogContent({ customer, handleChange }) {
     <DialogContent>
       <TextField
         margin="dense"
-        label="Brand"
-        name="brand"
-        value={customer.brand}
+        label="Firstname"
+        name="firstname"
+        value={customer.firstname}
         onChange={handleChange}
         fullWidth
         variant="standard"
       />
       <TextField
         margin="dense"
-        label="Model"
-        name="model"
-        value={customer.model}
+        label="Lastname"
+        name="lastname"
+        value={customer.lastname}
         onChange={handleChange}
         fullWidth
         variant="standard"
       />
       <TextField
         margin="dense"
-        label="Color"
-        name="color"
-        value={customer.color}
+        label="streetaddress"
+        name="streetaddress"
+        value={customer.streetaddress}
         onChange={handleChange}
         fullWidth
         variant="standard"
       />
       <TextField
         margin="dense"
-        label="Fuel"
-        name="fuel"
-        value={customer.fuel}
+        label="Postcode"
+        name="postcode"
+        value={customer.postcode}
         onChange={handleChange}
         fullWidth
         variant="standard"
       />
       <TextField
         margin="dense"
-        label="Year"
-        name="year"
-        value={customer.year}
+        label="City"
+        name="city"
+        value={customer.city}
         onChange={handleChange}
         fullWidth
         variant="standard"
       />
       <TextField
         margin="dense"
-        label="Price"
-        name="price"
-        value={customer.price}
+        label="Email"
+        name="email"
+        value={customer.email}
+        onChange={handleChange}
+        fullWidth
+        variant="standard"
+      />
+        <TextField
+        margin="dense"
+        label="Phone"
+        name="phone"
+        value={customer.phone}
         onChange={handleChange}
         fullWidth
         variant="standard"

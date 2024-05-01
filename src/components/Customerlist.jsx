@@ -34,12 +34,15 @@ function Customerlist() {
   }
 
   const [columnDefs] = useState([
-    { field: 'brand', sortable: true, filter: true },
-    { field: 'model', sortable: true, filter: true },
-    { field: 'color', sortable: true, filter: true },
-    { field: 'fuel', sortable: true, filter: true, width: 100 },
-    { field: 'year', sortable: true, filter: true, width: 100 },
-    { field: 'price', sortable: true, filter: true, width: 120 },
+    { field: 'firstname', sortable: true, filter: true },
+    { field: 'lastname', sortable: true, filter: true },
+    { field: 'streetaddress', sortable: true, filter: true },
+    { field: 'postcode', sortable: true, filter: true, width: 100 },
+    { field: 'city', sortable: true, filter: true, width: 100 },
+    { field: 'email', sortable: true, filter: true, width: 120 },
+    { field: 'phone', sortable: true, filter: true, width: 120 },
+
+
     {
       cellRenderer: params => <EditCustomer customerdata={params.data} fetchCustomers={getCustomers} />,
       width: 120
