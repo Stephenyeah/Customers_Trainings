@@ -34,13 +34,13 @@ function Customerlist() {
   }
 
   const [columnDefs] = useState([
-    { field: 'firstname', sortable: true, filter: true },
-    { field: 'lastname', sortable: true, filter: true },
-    { field: 'streetaddress', sortable: true, filter: true },
-    { field: 'postcode', sortable: true, filter: true, width: 100 },
-    { field: 'city', sortable: true, filter: true, width: 100 },
-    { field: 'email', sortable: true, filter: true, width: 120 },
-    { field: 'phone', sortable: true, filter: true, width: 120 },
+    { field: 'firstname', sortable: true, filter: true, width: 125  },
+    { field: 'lastname', sortable: true, filter: true, width: 125  },
+    { field: 'streetaddress', sortable: true, filter: true, width: 160 },
+    { field: 'postcode', sortable: true, filter: true, width: 120 },
+    { field: 'city', sortable: true, filter: true, width: 120 },
+    { field: 'email', sortable: true, filter: true, width: 180 },
+    { field: 'phone', sortable: true, filter: true, width: 150 },
 
 
     {
@@ -58,16 +58,22 @@ function Customerlist() {
  
   return(
     <>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <h2>Customers</h2>
+      
+    </div>
+    <div style={{ maxWidth: '1280px', margin: '0 auto',marginLeft: '8%' }}>
       <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
         <AddCustomer fetchCustomers={getCustomers} />
       </Stack>
-      <div className='ag-theme-material' style={{ width: '90%', height: 600 }}>
+      <div className='ag-theme-material' style={{ width: '95%', height: 600 }}>
         <AgGridReact 
           rowData={customers}
           columnDefs={columnDefs}
           pagination={true}
           paginationAutoPageSize={true}
         />
+      </div>
       </div>
       <Snackbar 
         open={open}

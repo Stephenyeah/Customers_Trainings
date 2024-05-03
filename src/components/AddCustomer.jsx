@@ -8,12 +8,13 @@ import CustomerDialogContent from './CustomerDialogContent';
 
 export default function AddCustomer({ fetchCustomers }) {
   const [customer, setCustomer] = useState({
-    brand: '',
-    model: '',
-    color: '',
-    fuel: '',
-    year: '',
-    price: ''
+    firstname: '',
+    lastname: '',
+    streetaddress: '',
+    postcode: '',
+    city: '',
+    email: '',
+    phone: ''
   });
   const [open, setOpen] = useState(false);
 

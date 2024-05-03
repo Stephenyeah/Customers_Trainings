@@ -13,12 +13,16 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.15",
+    "@mui/lab": "^5.0.0-alpha.170",
     "@mui/material": "^5.14.14",
+    "@mui/x-date-pickers": "^7.3.2",
     "ag-grid-community": "^30.2.0",
     "ag-grid-react": "^30.2.0",
+    "dayjs": "^1.11.11",
     "moment": "^2.30.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "TextField": "file:mui/material/TextField"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
