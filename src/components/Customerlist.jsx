@@ -6,9 +6,10 @@ import Stack from '@mui/material/Stack';
 import AddCustomer from './AddCustomer';
 import EditCustomer from './EditCustomer';
 import { fetchCustomers, deleteCustomer } from '../customerapi';
-
+import AddTraining from "./AddTrainings";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
+import { fetchTrainings } from '../trainingapi';
 
 function Customerlist() {
   const [customers, setCustomers] = useState([]);
@@ -33,15 +34,46 @@ function Customerlist() {
     }
   }
 
-  const [columnDefs] = useState([
-    { field: 'firstname', sortable: true, filter: true, width: 125  },
-    { field: 'lastname', sortable: true, filter: true, width: 125  },
-    { field: 'streetaddress', sortable: true, filter: true, width: 160 },
-    { field: 'postcode', sortable: true, filter: true, width: 120 },
-    { field: 'city', sortable: true, filter: true, width: 120 },
-    { field: 'email', sortable: true, filter: true, width: 180 },
-    { field: 'phone', sortable: true, filter: true, width: 150 },
+  const addTraining = (trainingData) => {
+    fetch(
+      "https://customerrestservice-personaltraining.rahtiapp.fi/api/trainings",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(trainingData),
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            "Error when adding a Training: " + response.statusText
+          );
+        }
+        return response.json();
+      })
+      .then(() => fetchCustomers())
+      .then(() => {
+        // Reload the page after successful deletion
+        window.location.reload();
+      })
+      .catch((err) => console.error(err));
+  };
 
+  const [columnDefs] = useState([
+    { field: 'firstname', sortable: true, filter: true, width: 125 ,floatingFilter: true },
+    { field: 'lastname', sortable: true, filter: true, width: 125, floatingFilter: true  },
+    { field: 'streetaddress', sortable: true, filter: true, width: 160 ,floatingFilter: true },
+    { field: 'postcode', sortable: true, filter: true, width: 120,floatingFilter: true },
+    { field: 'city', sortable: true, filter: true, width: 120,floatingFilter: true  },
+    { field: 'email', sortable: true, filter: true, width: 180,floatingFilter: true },
+    { field: 'phone', sortable: true, filter: true, width: 150,floatingFilter: true },
+
+    {
+      cellRenderer: (params) => (
+        <AddTraining addTraining={addTraining} customer={params.data} />
+      ),
+      width: 100,
+    },
 
     {
       cellRenderer: params => <EditCustomer customerdata={params.data} fetchCustomers={getCustomers} />,

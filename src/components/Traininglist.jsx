@@ -7,7 +7,7 @@ import { fetchTrainings, deleteTraining } from '../trainingapi';
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
 import moment from 'moment';
-import AddTrainings from './AddTrainings';
+
 
 
 function Traininglist() {
@@ -24,27 +24,32 @@ function Traininglist() {
   }
 
 
+    const handleDelete = (id) => {
+   
+        deleteTraining(id)
+        fetchTrainings()
+        .then(data => setTrainings(data))
 
-
-  const handleDelete = (url) => {
-    if (window.confirm("Are your sure?")) {
-      deleteTraining(url)
-      .then(() => {
-        setOpen(true); 
-        getTrainings();
-      })
+        .catch(error => console.error('Error deleting or fetching data:', error));
     }
-  }
+
+
   
 
   const [columnDefs] = useState([
     { field: 'date', sortable: true, filter: true ,width: 250,
-     valueFormatter: (params) => moment(params.value).format('DD-MM-YYYY HH:mm') },
-    { field: 'duration', headerName: 'Duration in minutes', sortable: true, filter: true },
-    { field: 'activity', sortable: true, filter: true, width: 250  },
-    { field: 'customer.firstname',headerName: 'Customer',  sortable: true, filter: true },
+     valueFormatter: (params) => moment(params.value).format('DD-MM-YYYY HH:mm'),floatingFilter: true  },
+    { field: 'duration', headerName: 'Duration in minutes', sortable: true, filter: true,floatingFilter: true  },
+    { field: 'activity', sortable: true, filter: true, width: 250 ,floatingFilter: true  },
+    { field: 'customer.firstname',headerName: 'Customer',  sortable: true, filter: true,floatingFilter: true },
 
-
+    {
+      cellRenderer: params => 
+        <Button color="error" size="small" onClick={() => handleDelete(params.data.id)}>
+          Delete
+        </Button>,
+      width: 120
+    },
 
   ]);
 
@@ -57,16 +62,18 @@ function Traininglist() {
     </div>
     
 
-    <div style={{ width: '90%', maxWidth: '1280px', margin: '0 auto',marginLeft: '20%' }}>
-      <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
-          <AddTrainings fetchTrainings={getTrainings} />
-        </Stack>
+    <div style={{ width: '90%', maxWidth: '1280px', margin: '0 auto',marginLeft: '7%' }}>
+
       <div className='ag-theme-material' style={{  height: 1200  }}>
         <AgGridReact 
           rowData={trainings}
           columnDefs={columnDefs}
           pagination={true}
           paginationAutoPageSize={true}
+          domLayout="autoHeight"
+          onFirstDataRendered={(params) => {
+            params.api.sizeColumnsToFit();
+          }}
         />
       </div>
       </div>

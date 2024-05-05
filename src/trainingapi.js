@@ -1,3 +1,4 @@
+
 export const fetchTrainings = () => {
   return fetch(import.meta.env.VITE_URL + '/gettrainings')
   .then(response => {
@@ -26,32 +27,34 @@ export const saveTraining = (training) => {
   .catch(err => console.error(err))
 }
 
-const fetchCustomerByFirstName = () => {
-  fetch(`https://customerrestservice-personaltraining.rahtiapp.fi/api/customers?firstName=${customerFirstName}`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Failed to fetch customer');
-      }
-      return response.json();
-    })
-    .then(data => {
-      if (data.length > 0) {
-        setCustomerLink(data[0].link);
-      } else {
-        console.error('Customer not found');
-      }
-    })
-    .catch(err => console.error(err));
-};
 
 
-export const deleteTraining = (url) => {
-  return fetch(url, {
-    method: 'DELETE'
-  })
-  .then(response => {
-    if (!response.ok)
-      throw new Error("Error in delete: " + response.statusText);
-  })
-  .catch(err => console.error(err))
-}
+
+// export const deleteTraining = (url) => {
+//   return fetch(url, {
+//     method: 'DELETE'
+//   })
+//   .then(response => {
+//     if (!response.ok)
+//       throw new Error("Error in delete: " + response.statusText);
+//   })
+//   .catch(err => console.error(err))
+// }
+
+export const deleteTraining = (id) => {
+    if (window.confirm("Are you sure you want to delete this training?")) {
+      fetch(import.meta.env.VITE_API_URL+ "/trainings/"+ id, {method: 'DELETE'})
+      .then(response => {
+          if (!response.ok) {
+              throw new Error("Error in deletion: " + response.statusText);
+          }
+          alert("Training deleted successfully!");
+          // Refresh the results
+          fetchTrainings().then(data => setTrainings(data));
+          
+      })
+        
+        
+        .catch((err) => console.error(err));
+    }
+  };
