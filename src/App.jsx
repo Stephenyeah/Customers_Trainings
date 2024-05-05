@@ -1,22 +1,20 @@
-import Customerlist from "./components/Customerlist"
+import './App.css';
+import React from 'react';
 import Container from '@mui/material/Container';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Traininglist from "./components/Traininglist"
-import "./App.css";
+import { Link, Outlet } from 'react-router-dom';
 
 function App() {
   return (
-    <Container maxWidth="xl">
-      <AppBar position="static">
-        <Toolbar className="custom-toolbar">
-          <Typography variant="h6" className="center-text">Customer and Training</Typography>
-        </Toolbar>
-      </AppBar>
-      <Customerlist />
-      <Traininglist />
-    </Container>
+    <div className="App">
+
+      <nav>
+        <Link to={"/"} className='nav-link'>Home</Link>
+        <Link to={"/Customerlist"} className='nav-link'>Customerlist</Link>
+        <Link to={"/Traininglist"} className='nav-link'>Traininglist</Link>
+        <Link to={"/Calendar"} className='nav-link'>Calendar</Link>
+      </nav>
+      <Outlet />
+    </div>
   )
 }
 

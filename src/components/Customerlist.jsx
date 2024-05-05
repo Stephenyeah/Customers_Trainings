@@ -9,7 +9,7 @@ import { fetchCustomers, deleteCustomer } from '../customerapi';
 import AddTraining from "./AddTrainings";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
-import { fetchTrainings } from '../trainingapi';
+import CustomerExport from "./CustomerExport";
 
 function Customerlist() {
   const [customers, setCustomers] = useState([]);
@@ -94,10 +94,15 @@ function Customerlist() {
       <h2>Customers</h2>
       
     </div>
-    <div style={{ maxWidth: '1280px', margin: '0 auto',marginLeft: '8%' }}>
+    <div style={{ height: "90vh", width: 1360, margin: '0 auto',marginLeft: '1%' }}>
       <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
         <AddCustomer fetchCustomers={getCustomers} />
       </Stack>
+      <div style={{marginLeft: '85%'}}>
+      <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
+              <CustomerExport customers={customers} /></Stack>
+      </div>
+      
       <div className='ag-theme-material' style={{ width: '95%', height: 600 }}>
         <AgGridReact 
           rowData={customers}
@@ -106,6 +111,8 @@ function Customerlist() {
           paginationAutoPageSize={true}
         />
       </div>
+
+      
       </div>
       <Snackbar 
         open={open}

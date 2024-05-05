@@ -1,5 +1,37 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
 
+h1 {
+  color: #007bff; 
+}
 
+h2 {
+  color: #dc3545; 
+}
+
+h3:nth-of-type(1) {
+  color: #28a745; 
+}
+
+h3:nth-of-type(2) {
+  color: #ffc107; 
+}
+
+h3:nth-of-type(3) {
+  color: #17a2b8; 
+}
+
+h3:nth-of-type(4) {
+  color: #6c757d; 
+}
+
+h3:nth-of-type(5) {
+  color: #6610f2; 
+}
 
 .card {
   padding: 2em;
@@ -11,7 +43,21 @@
   color: #ffffff; 
 }
 
+.read-the-docs {
+  color: #888;
+}
 
+.nav-link {
+  margin-right: 10px;
+  font-size: 18px;
+  color: #710b87; 
+  transition: color 0.3s ease; 
+}
+
+.nav-link:hover {
+  background-color: #007bff; 
+  color: #fff; 
+}
 
 .logo {
   height: 6em;

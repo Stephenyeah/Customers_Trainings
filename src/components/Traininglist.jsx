@@ -62,9 +62,9 @@ function Traininglist() {
     </div>
     
 
-    <div style={{ width: '90%', maxWidth: '1280px', margin: '0 auto',marginLeft: '7%' }}>
+    <div style={{ height: "90vh", width: 988, margin: '0 auto',marginLeft: '7%' }}>
 
-      <div className='ag-theme-material' style={{  height: 1200  }}>
+      <div className='ag-theme-material' style={{  height: 600  }}>
         <AgGridReact 
           rowData={trainings}
           columnDefs={columnDefs}
