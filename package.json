@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://stephenyeah.github.io/Customers_Trainings",
+  // "homepage": "https://stephenyeah.github.io/Customers_Trainings",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -30,7 +30,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.0",
     "recharts": "^2.12.6",
-    "TextField": "file:mui/material/TextField"
+    "TextField": "file:mui/material/TextField",
+    "vue-router": "^4.3.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

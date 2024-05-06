@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-
+import { RouterProvider, createBrowserRouter} from 'react-router-dom'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import './index.css';
 
 import App from './App.jsx'
@@ -15,8 +15,7 @@ import TrainingChart from './components/TrainingChart.jsx'
 
 const router = createBrowserRouter([
   {
-    history: createWebHashHistory("/customer-training/"),
-    routes,
+
     path:"/",
     element: <App />,
     children: [
