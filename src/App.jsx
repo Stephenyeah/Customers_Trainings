@@ -8,7 +8,7 @@ function App() {
     <div className="App">
 
       <nav>
-        <Link to={"/"} className='nav-link'>Home</Link>
+        <Link to={"/Customers_Trainings/"} className='nav-link'>Home</Link>
         <Link to={"/Customers_Trainings/Customerlist"} className='nav-link'>Customerlist</Link>
         <Link to={"/Customers_Trainings/Traininglist"} className='nav-link'>Traininglist</Link>
         <Link to={"/Customers_Trainings/Calendar"} className='nav-link'>Calendar</Link>
