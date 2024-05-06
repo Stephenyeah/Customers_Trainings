@@ -12,6 +12,7 @@ function App() {
         <Link to={"/Customerlist"} className='nav-link'>Customerlist</Link>
         <Link to={"/Traininglist"} className='nav-link'>Traininglist</Link>
         <Link to={"/Calendar"} className='nav-link'>Calendar</Link>
+        <Link to={"/TrainingChart"} className='nav-link'>TrainingChart</Link>
       </nav>
       <Outlet />
     </div>
