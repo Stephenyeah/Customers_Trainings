@@ -32,15 +32,15 @@ export default function Statistics() {
 
     return (
         <>
-            <BarChart width={1200} height={600} data={statistics}>
-                <Bar type="monotone" dataKey="duration" fill="#8884d8" />
+            <BarChart width={1250} height={650} data={statistics}>
+                <Bar type="monotone" dataKey="duration" fill="#6610f2" />
                 <CartesianGrid stroke="#ccc" />
                 <XAxis dataKey="activity" />
                 <YAxis>
                     <Label 
                         value="Duration (mins)"
                         position="insideLeft"
-                        angle={-90}
+                        angle={-85}
                         style={{textAnchor: "middle"}}
                         />
                 </YAxis>
