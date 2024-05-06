@@ -12,9 +12,10 @@ import Calendar from './components/Calendar'
 import TrainingChart from './components/TrainingChart.jsx'
 
 
+
 const router = createBrowserRouter([
   {
-    history 
+    history: createWebHashHistory("/customer-training/"),
     routes,
     path:"/",
     element: <App />,
