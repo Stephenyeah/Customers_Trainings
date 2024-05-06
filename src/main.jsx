@@ -14,6 +14,8 @@ import TrainingChart from './components/TrainingChart.jsx'
 
 const router = createBrowserRouter([
   {
+    history 
+    routes,
     path:"/",
     element: <App />,
     children: [
