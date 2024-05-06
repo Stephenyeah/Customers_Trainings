@@ -9,10 +9,10 @@ function App() {
 
       <nav>
         <Link to={"/"} className='nav-link'>Home</Link>
-        <Link to={"/Customerlist"} className='nav-link'>Customerlist</Link>
-        <Link to={"/Traininglist"} className='nav-link'>Traininglist</Link>
-        <Link to={"/Calendar"} className='nav-link'>Calendar</Link>
-        <Link to={"/TrainingChart"} className='nav-link'>TrainingChart</Link>
+        <Link to={"/Customers_Trainings/Customerlist"} className='nav-link'>Customerlist</Link>
+        <Link to={"/Customers_Trainings/Traininglist"} className='nav-link'>Traininglist</Link>
+        <Link to={"/Customers_Trainings/Calendar"} className='nav-link'>Calendar</Link>
+        <Link to={"/Customers_Trainings/TrainingChart"} className='nav-link'>TrainingChart</Link>
       </nav>
       <Outlet />
     </div>

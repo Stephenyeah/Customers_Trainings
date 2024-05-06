@@ -1,51 +1,28 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { RouterProvider, createBrowserRouter} from 'react-router-dom'
-import { createRouter, createWebHashHistory } from 'vue-router'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 
-import App from './App.jsx'
-import Home from './components/Home.jsx'
-import Customerlist from './components/Customerlist.jsx'
-import Traininglist from './components/Traininglist.jsx'
-import Calendar from './components/Calendar'
-import TrainingChart from './components/TrainingChart.jsx'
+import App from './App.jsx';
+import Home from './components/Home.jsx';
+import Customerlist from './components/Customerlist.jsx';
+import Traininglist from './components/Traininglist.jsx';
+import Calendar from './components/Calendar';
+import TrainingChart from './components/TrainingChart.jsx';
 
-
-
-const router = createBrowserRouter([
-  {
-
-    path:"/",
-    element: <App />,
-    children: [
-      {
-        element: <Home />,
-        index: true
-      },
-      {
-        path: "Customerlist",
-        element: <Customerlist />
-      },
-      {
-        path: "Traininglist",
-        element: <Traininglist />
-      },
-      {
-        path: "Calendar",
-        element: <Calendar />
-      },
-      {
-        path: "TrainingChart",
-        element: <TrainingChart />
-      }
-
-    ]
-  }
-])
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Router>
+      <Routes>
+        <Route path="/Customers_Trainings/" element={<App />}>
+          <Route index element={<Home />} />
+          <Route path="Customerlist" element={<Customerlist />} />
+          <Route path="Traininglist" element={<Traininglist />} />
+          <Route path="Calendar" element={<Calendar />} />
+          <Route path="TrainingChart" element={<TrainingChart />} />
+        </Route>
+      </Routes>
+    </Router>
   </React.StrictMode>,
-)
+  document.getElementById('root')
+);
